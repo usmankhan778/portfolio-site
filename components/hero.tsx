@@ -4,8 +4,12 @@ import Link from 'next/link'
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white dark:bg-slate-950 px-4 sm:px-6 lg:px-8 pt-20">
-      <div className="max-w-5xl mx-auto text-center space-y-8">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+      </div>
+      <div className="max-w-5xl mx-auto text-center space-y-8 relative z-10">
         <div className="space-y-6">
           <div className="inline-block">
             <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-semibold">

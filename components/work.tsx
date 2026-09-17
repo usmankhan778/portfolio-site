@@ -5,8 +5,11 @@ import { projects } from '@/lib/data/projects'
 
 export function Work() {
   return (
-    <section id="work" className="py-24 bg-white dark:bg-slate-950 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <section id="work" className="py-24 bg-white dark:bg-slate-950 px-4 sm:px-6 lg:px-8 relative">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 right-0 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 dark:opacity-5"></div>
+      </div>
+      <div className="max-w-7xl mx-auto space-y-16 relative z-10">
         <div className="space-y-6 text-center">
           <h2 className="text-5xl sm:text-6xl font-bold text-slate-900 dark:text-white">
             Featured Projects

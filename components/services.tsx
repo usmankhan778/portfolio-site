@@ -25,8 +25,12 @@ export function Services() {
   ]
 
   return (
-    <section id="services" className="py-24 bg-slate-50 dark:bg-slate-900 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto space-y-16">
+    <section id="services" className="py-24 bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-50 dark:from-slate-900 dark:via-blue-900/20 dark:to-slate-900 px-4 sm:px-6 lg:px-8 relative">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+      </div>
+      <div className="max-w-6xl mx-auto space-y-16 relative z-10">
         <div className="space-y-6 text-center">
           <h2 className="text-5xl sm:text-6xl font-bold text-slate-900 dark:text-white">
             Services I Offer

@@ -34,8 +34,12 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-slate-900 dark:bg-slate-950 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 px-4 sm:px-6 lg:px-8 relative">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 right-20 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10"></div>
+      </div>
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="space-y-16">
           <div className="space-y-6 text-center">
             <h2 className="text-5xl sm:text-6xl font-bold text-white">

@@ -4,8 +4,12 @@ import { skills } from '@/lib/data/projects'
 
 export function About() {
   return (
-    <section id="about" className="py-24 bg-slate-50 dark:bg-slate-900 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 px-4 sm:px-6 lg:px-8 relative">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-10 dark:opacity-5"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-10 dark:opacity-5"></div>
+      </div>
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div>
