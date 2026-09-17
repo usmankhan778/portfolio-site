@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Image from 'next/image'
 
 export interface Project {
   id: string
@@ -13,15 +13,14 @@ export interface Project {
 
 interface ProjectCardProps {
   project: Project
-  index: number
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 hover:shadow-lg dark:hover:shadow-xl hover:shadow-slate-200 dark:hover:shadow-slate-900">
       <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center overflow-hidden">
         {project.image ? (
-          <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <Image src={project.image} alt={project.title} width={400} height={300} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
         ) : (
           <div className="text-slate-400 dark:text-slate-500 text-center">
             <p className="text-sm">Project Image</p>

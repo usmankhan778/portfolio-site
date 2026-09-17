@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, Send } from 'lucide-react'
 
 interface ContactFormData {
   name: string
@@ -17,7 +17,6 @@ export function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Send to API route
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -35,118 +34,118 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-slate-950 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto space-y-12">
-        <div className="space-y-4 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white">
-            Get In Touch
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Have a project in mind? Let's talk about how I can help bring your ideas to life.
-          </p>
-        </div>
+    <section id="contact" className="py-24 bg-slate-900 dark:bg-slate-950 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="space-y-16">
+          <div className="space-y-6 text-center">
+            <h2 className="text-5xl sm:text-6xl font-bold text-white">
+              Let&apos;s Work Together
+            </h2>
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+              Have a project in mind? Let&apos;s discuss how I can help transform your data into strategic insights.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div className="flex gap-4">
-            <Mail className="text-blue-600 dark:text-blue-400 flex-shrink-0" size={24} />
-            <div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Email</h3>
-              <a href="mailto:uk2487758@gmail.com" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <div className="bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-blue-600 transition-all duration-300">
+              <Mail className="text-blue-400 mb-4" size={32} />
+              <h3 className="font-semibold text-white mb-2 text-lg">Email</h3>
+              <a href="mailto:uk2487758@gmail.com" className="text-slate-300 hover:text-blue-400 transition">
                 uk2487758@gmail.com
               </a>
             </div>
-          </div>
 
-          <div className="flex gap-4">
-            <Phone className="text-blue-600 dark:text-blue-400 flex-shrink-0" size={24} />
-            <div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Phone</h3>
-              <a href="tel:+1234567890" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+            <div className="bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-blue-600 transition-all duration-300">
+              <Phone className="text-blue-400 mb-4" size={32} />
+              <h3 className="font-semibold text-white mb-2 text-lg">Phone</h3>
+              <a href="tel:+1234567890" className="text-slate-300 hover:text-blue-400 transition">
                 +1 (234) 567-890
               </a>
             </div>
-          </div>
 
-          <div className="flex gap-4">
-            <MapPin className="text-blue-600 dark:text-blue-400 flex-shrink-0" size={24} />
-            <div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Location</h3>
-              <p className="text-slate-600 dark:text-slate-400">
+            <div className="bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-blue-600 transition-all duration-300">
+              <MapPin className="text-blue-400 mb-4" size={32} />
+              <h3 className="font-semibold text-white mb-2 text-lg">Location</h3>
+              <p className="text-slate-300">
                 Available Worldwide
               </p>
             </div>
           </div>
-        </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-slate-50 dark:bg-slate-900 rounded-xl p-8 border border-slate-200 dark:border-slate-800 space-y-6">
-          {submitted && (
-            <div className="bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-800 text-green-800 dark:text-green-200 rounded-lg p-4">
-              Thanks for reaching out! I'll get back to you soon.
+          <form onSubmit={handleSubmit(onSubmit)} className="bg-slate-800 rounded-2xl p-12 border border-slate-700 space-y-8 max-w-3xl mx-auto">
+            {submitted && (
+              <div className="bg-green-500/20 border border-green-500 text-green-200 rounded-lg p-4 flex items-center gap-3">
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                <p>Thanks for reaching out! I&apos;ll get back to you within 24 hours.</p>
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <label className="block text-sm font-semibold text-white mb-3">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  {...register('name', { required: 'Name is required' })}
+                  className="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
+                  placeholder="Your name"
+                />
+                {errors.name && <p className="text-red-400 text-sm mt-2">{errors.name.message}</p>}
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-white mb-3">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  {...register('email', { required: 'Email is required', pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email' } })}
+                  className="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
+                  placeholder="your@email.com"
+                />
+                {errors.email && <p className="text-red-400 text-sm mt-2">{errors.email.message}</p>}
+              </div>
             </div>
-          )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
-                Name
+              <label className="block text-sm font-semibold text-white mb-3">
+                Subject
               </label>
               <input
                 type="text"
-                {...register('name', { required: 'Name is required' })}
-                className="w-full px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
-                placeholder="Your name"
+                {...register('subject', { required: 'Subject is required' })}
+                className="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
+                placeholder="What's this about?"
               />
-              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
+              {errors.subject && <p className="text-red-400 text-sm mt-2">{errors.subject.message}</p>}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
-                Email
+              <label className="block text-sm font-semibold text-white mb-3">
+                Message
               </label>
-              <input
-                type="email"
-                {...register('email', { required: 'Email is required', pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email' } })}
-                className="w-full px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
-                placeholder="your@email.com"
+              <textarea
+                {...register('message', { required: 'Message is required' })}
+                rows={6}
+                className="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition resize-none"
+                placeholder="Tell me about your project..."
               />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
+              {errors.message && <p className="text-red-400 text-sm mt-2">{errors.message.message}</p>}
             </div>
-          </div>
 
-          <div>
-            <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
-              Subject
-            </label>
-            <input
-              type="text"
-              {...register('subject', { required: 'Subject is required' })}
-              className="w-full px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
-              placeholder="What's this about?"
-            />
-            {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>}
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
-              Message
-            </label>
-            <textarea
-              {...register('message', { required: 'Message is required' })}
-              rows={5}
-              className="w-full px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition resize-none"
-              placeholder="Tell me about your project..."
-            />
-            {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </button>
-        </form>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-lg font-semibold transition transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              <Send size={20} />
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   )
